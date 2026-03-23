@@ -8,7 +8,7 @@
 
 The Daily Protocol is an independent mobile application. For privacy enquiries:
 
-**Email:** privacy@thedailyprotocol.app
+**Email:** dailyprotocolapp@gmail.com
 
 We are the data controller for any personal data described in this policy.
 
@@ -122,8 +122,8 @@ We may update this Privacy Policy from time to time. We will notify you of mater
 
 For privacy-related questions, requests, or complaints:
 
-**Email:** privacy@thedailyprotocol.app
-**Support:** support@thedailyprotocol.app
+**Email:** dailyprotocolapp@gmail.com
+**Support:** dailyprotocolapp@gmail.com
 
 You also have the right to lodge a complaint with your local data protection authority (e.g. the ICO in the UK, or your national DPA in the EU).
 
