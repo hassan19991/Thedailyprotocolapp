@@ -14,16 +14,33 @@ We are the data controller for any personal data described in this policy.
 
 ---
 
-## 2. Data We Collect
+## 2. Subscription Tiers & Content Access
+
+**Free Tier:**
+- Access to the first 5 steps of every protocol
+- Step photos included for the first 5 steps
+- Basic protocol search and favorites
+
+**Premium Tier:**
+- Unlimited access to all steps in every protocol
+- Full step photos and detailed instructions
+- PDF export with notes, photos, and timestamps
+- Cloud backup and sync across devices
+- Offline vault with all protocols available offline
+
+---
+
+## 3. Data We Collect
 
 **No account or personal identity is collected. No sign-in is required.**
 
 ### A. App Usage Data (stored only on your device)
 - Protocols you have marked as favourites
 - Protocols you have recently opened
-- Checklist progress (steps checked, timestamps, notes, photos you add)
+- Checklist progress (steps checked, timestamps, notes, photos you add) — limited to first 5 steps for free users
 - Protocol reminder times you have set
 - Daily notification preferences (on/off, time)
+- Subscription tier status
 
 ### B. Technical Data
 - App version and OS version (for crash diagnostics, if enabled)
@@ -37,12 +54,13 @@ We are the data controller for any personal data described in this policy.
 
 ---
 
-## 3. How We Use Your Data
+## 4. How We Use Your Data
 
 - To save your checklist progress, favourites, and reminders on your device
 - To send local push notifications for reminders you configure
 - To send a daily Protocol of the Day notification (opt-out available in Settings)
 - To maintain your subscription status (verified directly through Google Play or the App Store)
+- To control content access based on your subscription tier (Free = 5 steps, Premium = all steps)
 - To diagnose crashes and improve app stability
 
 We do NOT:
@@ -95,14 +113,14 @@ If you are located in the European Economic Area or the United Kingdom, you have
 - **Right to data portability** — Your data is stored in standard formats on your device and can be accessed directly.
 - **Right to object** — You can disable notifications and data collection features at any time in Settings.
 
-To exercise any right, email: privacy@thedailyprotocol.app
+To exercise any right, email: dailyprotocolapp@gmail.com
 We will respond within 30 days.
 
 ---
 
 ## 8. Children's Privacy
 
-The App is not directed to children under the age of 13. We do not knowingly collect personal data from children under 13. If you believe a child under 13 has provided data through the App, please contact us at privacy@thedailyprotocol.app and we will address it promptly.
+The App is not directed to children under the age of 13. We do not knowingly collect personal data from children under 13. If you believe a child under 13 has provided data through the App, please contact us at dailyprotocolapp@gmail.com and we will address it promptly.
 
 ---
 
