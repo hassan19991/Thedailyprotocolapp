@@ -86,11 +86,16 @@ class _TermsBody extends StatelessWidget {
 
         _section(context, '2. Description of Service',
             'The Daily Protocol is a mobile application that provides safety '
-            'checklists, emergency protocols, and guidance for a range of sectors '
-            'including but not limited to vehicle safety, fire safety, electrical '
-            'safety, and workplace safety.\n\n'
-            'The App also provides a "Nearby Help" feature that opens a third-party '
-            'mapping service to help you locate services in your area.'),
+            'checklists, emergency protocols, and guidance for a range of '
+            'everyday safety scenarios.\n\n'
+            'The App also provides a "Nearby Help" feature. When you enable '
+            'Location in Settings and grant OS permission, the App uses your '
+            'device\'s GPS to surface nearby emergency services. Location data '
+            'is processed on-device only and is never transmitted to our servers. '
+            'You can disable this feature at any time in Settings.\n\n'
+            'The App also provides daily safety notifications, PDF protocol '
+            'export, text-to-speech reading of steps, and a protocol library '
+            'that works fully offline.'),
 
         _section(context, '3. Safety Disclaimer & Limitation of Liability',
             '3.1 FOR GUIDANCE ONLY\n'
@@ -120,12 +125,13 @@ class _TermsBody extends StatelessWidget {
 
         _section(context, '4. Subscription Terms',
             '4.1 FREE PLAN\n'
-            'The free plan gives access to protocols with the first 5 steps visible and included step photos. '
-            'Additional features (full step access, PDF export, cloud backup, offline vault) are not available on the free plan. '
-            'No payment is required for the free plan.\n\n'
+            'The free plan gives access to all protocols with the first 5 steps '
+            'visible. PDF export is available on the free plan for up to 5 checked '
+            'steps. No payment is required for the free plan.\n\n'
             '4.2 PREMIUM SUBSCRIPTION\n'
-            'Premium gives unlimited access to all protocols, all steps, step photos, PDF export, cloud backup, and offline vault features for a '
-            'recurring monthly subscription fee as displayed in the App at the time of purchase.\n\n'
+            'Premium gives unlimited access to all protocols, all steps, full PDF '
+            'export of all checked steps, and all App features, for a recurring '
+            'monthly subscription fee as displayed in the App at the time of purchase.\n\n'
             '4.3 BILLING & AUTO-RENEWAL\n'
             '   • Your subscription automatically renews each month unless you cancel '
             'at least 24 hours before the end of the current billing period.\n'
@@ -162,10 +168,22 @@ class _TermsBody extends StatelessWidget {
             'Content you create within the App (checklist notes, photos) remains '
             'yours. We do not claim ownership over user-generated content.'),
 
+        _section(context, '6b. Location Permission',
+            'The Nearby Help feature optionally uses your device\'s GPS. '
+            'You will be prompted to grant location permission the first time '
+            'you launch the App, or you can enable it later in Settings.\n\n'
+            '• Location permission is entirely voluntary. The App functions fully '
+            'without it.\n'
+            '• Your location is processed on-device only and is never sent to our '
+            'servers or shared with third parties by this App.\n'
+            '• You may revoke location permission at any time via your phone\'s '
+            'system Settings → App Permissions.'),
+
         _section(context, '7. Third-Party Services',
-            'The App integrates with Google Maps (via Nearby Help) and the respective '
-            'app stores (Google Play, Apple App Store). Your use of those services is governed '
-            'by their own terms and privacy policies. We are not responsible for '
+            'The App integrates with device-level location services (OS GPS) '
+            'and the respective app stores (Google Play, Apple App Store) for '
+            'subscription billing. Your use of those services is governed by '
+            'their own terms and privacy policies. We are not responsible for '
             'the availability, accuracy, or content of third-party services.'),
 
         _section(context, '8. Governing Law',
@@ -175,8 +193,9 @@ class _TermsBody extends StatelessWidget {
             'mandatory local laws require otherwise.'),
 
         _section(context, '9. Contact',
-            'For questions about these Terms:\n\n'
-            '  Email: dailyprotocolapp@gmail.com'),
+            'Want to suggest a new protocol, request a content update, or '
+            'discuss advertising opportunities?\n\n'
+            'Email: dailyprotocolapp@gmail.com'),
 
         const SizedBox(height: 32),
         Container(
@@ -186,8 +205,8 @@ class _TermsBody extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
-            'Questions about these Terms? Email us at '
-            'dailyprotocolapp@gmail.com',
+            'Protocol suggestions, content updates, or advertising — '
+            'reach us at dailyprotocolapp@gmail.com',
             style: textTheme.bodySmall,
           ),
         ),

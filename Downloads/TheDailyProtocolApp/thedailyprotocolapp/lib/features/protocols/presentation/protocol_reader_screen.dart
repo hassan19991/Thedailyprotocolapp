@@ -128,7 +128,8 @@ class _ProtocolReaderScreenState extends ConsumerState<ProtocolReaderScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(shown.title, maxLines: 1, overflow: TextOverflow.ellipsis),
+        title: Text(shown.title, maxLines: 2, overflow: TextOverflow.ellipsis),
+        titleSpacing: 0,
         actions: [
           // ── Reminder bell ──────────────────────────────────────────
           IconButton(
@@ -139,22 +140,6 @@ class _ProtocolReaderScreenState extends ConsumerState<ProtocolReaderScreen> {
             tooltip: hasReminder ? 'Edit reminder' : 'Set reminder',
             onPressed: () => _showReminderSheet(context, protocol),
           ),
-          // ── Read Aloud toggle ──────────────────────────────────────
-          IconButton(
-            icon: _speakingText != null
-                ? const Icon(Icons.stop_circle_rounded, color: Color(0xFF1D6FD8))
-                : const Icon(Icons.volume_up_rounded),
-            tooltip: _speakingText != null ? 'Stop audio' : 'Read aloud',
-            onPressed: () {
-              if (_speakingText != null) {
-                _stopAudio();
-              } else {
-                final fullText = '${shown.title}. ${shown.description}. '
-                    '${shown.steps.join('. ')}';
-                _toggleStepAudio(fullText);
-              }
-            },
-          ),
           // ── Bookmark ───────────────────────────────────────────────
           IconButton(
             icon: Icon(isFavorite ? Icons.bookmark : Icons.bookmark_border_outlined),
@@ -163,13 +148,23 @@ class _ProtocolReaderScreenState extends ConsumerState<ProtocolReaderScreen> {
               await ref.read(favoritesProvider.notifier).toggle(protocol.id);
             },
           ),
-          // ── Translate ──────────────────────────────────────────────
+          // ── Overflow: Read Aloud + Translate ───────────────────────
           PopupMenuButton<String>(
-            tooltip: 'Translate',
+            tooltip: 'More options',
             icon: _isTranslating
                 ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2))
-                : const Icon(Icons.translate_rounded),
+                : const Icon(Icons.more_vert_rounded),
             onSelected: (value) {
+              if (value == 'tts') {
+                if (_speakingText != null) {
+                  _stopAudio();
+                } else {
+                  final fullText = '${shown.title}. ${shown.description}. '
+                      '${shown.steps.join('. ')}';
+                  _toggleStepAudio(fullText);
+                }
+                return;
+              }
               if (value == 'original') {
                 setState(() {
                   _translated = null;
@@ -180,9 +175,42 @@ class _ProtocolReaderScreenState extends ConsumerState<ProtocolReaderScreen> {
               unawaited(_translateProtocol(value));
             },
             itemBuilder: (context) => [
-              const PopupMenuItem<String>(value: 'original', child: Text('Original')),
+              PopupMenuItem<String>(
+                value: 'tts',
+                child: Row(
+                  children: [
+                    Icon(
+                      _speakingText != null ? Icons.stop_circle_rounded : Icons.volume_up_rounded,
+                      size: 20,
+                      color: _speakingText != null ? const Color(0xFF1D6FD8) : null,
+                    ),
+                    const SizedBox(width: 12),
+                    Text(_speakingText != null ? 'Stop audio' : 'Read aloud'),
+                  ],
+                ),
+              ),
+              const PopupMenuDivider(),
+              const PopupMenuItem<String>(
+                value: 'original',
+                child: Row(
+                  children: [
+                    Icon(Icons.translate_rounded, size: 20),
+                    SizedBox(width: 12),
+                    Text('Original language'),
+                  ],
+                ),
+              ),
               ..._languageCodeToName.entries.map(
-                (entry) => PopupMenuItem<String>(value: entry.key, child: Text(entry.value)),
+                (entry) => PopupMenuItem<String>(
+                  value: entry.key,
+                  child: Row(
+                    children: [
+                      const Icon(Icons.translate_rounded, size: 20),
+                      const SizedBox(width: 12),
+                      Text(entry.value),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
@@ -281,12 +309,26 @@ class _ProtocolReaderScreenState extends ConsumerState<ProtocolReaderScreen> {
             isPremium: tier == SubscriptionTier.premium,
             exporting: _isExporting,
             onExport: () async {
+              final checkedCount = progress.checkedSteps.length;
+              final isPremium = tier == SubscriptionTier.premium;
+              if (checkedCount == 0) {
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Please check at least 1 step before exporting.')),
+                  );
+                }
+                return;
+              }
+              if (!isPremium && checkedCount > AppConfig.freePdfStepLimit) {
+                if (context.mounted) showPaywallSheet(context, protocolTitle: protocol.title);
+                return;
+              }
               setState(() => _isExporting = true);
               try {
                 await ref.read(reportExportServiceProvider).exportProtocolReport(
                   protocol: protocol,
                   progress: progress,
-                  isPremium: tier == SubscriptionTier.premium,
+                  isPremium: isPremium,
                 );
               } finally {
                 if (mounted) setState(() => _isExporting = false);
@@ -332,12 +374,26 @@ class _ProtocolReaderScreenState extends ConsumerState<ProtocolReaderScreen> {
                       }
                     },
                     onExportReport: () async {
+                      final checkedCount = progress.checkedSteps.length;
+                      final isPremium = tier == SubscriptionTier.premium;
+                      if (checkedCount == 0) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Please check at least 1 step before exporting.')),
+                          );
+                        }
+                        return;
+                      }
+                      if (!isPremium && checkedCount > AppConfig.freePdfStepLimit) {
+                        if (context.mounted) showPaywallSheet(context, protocolTitle: protocol.title);
+                        return;
+                      }
                       setState(() => _isExporting = true);
                       try {
                         await ref.read(reportExportServiceProvider).exportProtocolReport(
                           protocol: protocol,
                           progress: progress,
-                          isPremium: tier == SubscriptionTier.premium,
+                          isPremium: isPremium,
                         );
                       } finally {
                         if (mounted) setState(() => _isExporting = false);

@@ -17,16 +17,17 @@ We are the data controller for any personal data described in this policy.
 ## 2. Subscription Tiers & Content Access
 
 **Free Tier:**
-- Access to the first 5 steps of every protocol
-- Step photos included for the first 5 steps
-- Basic protocol search and favorites
+- Access to all protocols with the first 5 steps visible
+- PDF export of up to 5 checked steps
+- Basic protocol search and favourites
+- Nearby Help (with optional location permission)
 
 **Premium Tier:**
 - Unlimited access to all steps in every protocol
-- Full step photos and detailed instructions
-- PDF export with notes, photos, and timestamps
-- Cloud backup and sync across devices
-- Offline vault with all protocols available offline
+- Full PDF export of all checked steps
+- Text-to-speech reading of all steps
+- Offline protocol library — works without internet
+- All App features unlocked
 
 ---
 
@@ -37,20 +38,30 @@ We are the data controller for any personal data described in this policy.
 ### A. App Usage Data (stored only on your device)
 - Protocols you have marked as favourites
 - Protocols you have recently opened
-- Checklist progress (steps checked, timestamps, notes, photos you add) — limited to first 5 steps for free users
+- Checklist progress (steps checked, timestamps, notes, photos you add)
 - Protocol reminder times you have set
-- Daily notification preferences (on/off, time)
-- Subscription tier status
+- Daily notification preferences (on/off, scheduled time)
+- Location permission preference (enabled/disabled, stored locally)
+- Subscription tier status (free or premium)
 
-### B. Technical Data
+### B. Location Data (only when you enable the Location feature)
+When you turn on **Location** in Settings and grant OS permission, the App accesses your device's GPS to surface nearby emergency services within the Nearby Help screen.
+
+- Your location is processed **entirely on-device**.
+- Location data is **never transmitted** to our servers or any third party.
+- You can disable location access at any time in App Settings or your phone's system Settings → App Permissions.
+- Location permission is **entirely voluntary**. The App works fully without it.
+
+### C. Technical Data
 - App version and OS version (for crash diagnostics, if enabled)
+- Crash log files stored locally on your device
 
-### C. What We Do NOT Collect
+### D. What We Do NOT Collect
 - Email address, phone number, or any personal identifier
-- Precise GPS location — the "Nearby Help" feature opens Google Maps in your browser; we receive no location data
+- Location data without your explicit permission and voluntary opt-in
 - Contacts, camera roll, or microphone data
 - Health or biometric data
-- Browsing or advertising identifiers
+- Browsing history or advertising identifiers
 
 ---
 
@@ -59,23 +70,16 @@ We are the data controller for any personal data described in this policy.
 - To save your checklist progress, favourites, and reminders on your device
 - To send local push notifications for reminders you configure
 - To send a daily Protocol of the Day notification (opt-out available in Settings)
+- To show nearby emergency services based on your device location (only when Location is enabled and OS permission granted)
 - To maintain your subscription status (verified directly through Google Play or the App Store)
-- To control content access based on your subscription tier (Free = 5 steps, Premium = all steps)
+- To control content access based on your subscription tier
 - To diagnose crashes and improve app stability
 
 We do NOT:
 - Sell your data to third parties
 - Use your data for advertising or profiling
+- Transmit your location or any personal data to our servers
 - Share your data with any third party except those listed in Section 5
-
----
-
-## 4. Data Storage & Security
-
-- **All data is stored locally on your device** using encrypted storage (Hive).
-- No personal data is transmitted to or stored on our servers.
-- Crash logs are stored locally on your device only; we never automatically receive them.
-- Payment processing is handled entirely by Google Play or the App Store — we never see your card number or payment details.
 
 ---
 
@@ -87,6 +91,9 @@ The App uses the following third-party services, each governed by their own priv
   - Google Privacy Policy: https://policies.google.com/privacy
   - Apple Privacy Policy: https://www.apple.com/legal/privacy/
 
+- **Device Location Services (OS-level GPS)** — only when Location is enabled
+  - Location data is processed on-device only and is not shared with any third-party service by this App.
+
 The App does NOT use:
 - Firebase, Firestore, or any Google Analytics SDK
 - RevenueCat or any other subscription middleware
@@ -95,38 +102,37 @@ The App does NOT use:
 
 ---
 
-## 6. Data Retention
+## 6. Data Storage & Security
+
+- All data is stored locally on your device using encrypted storage (Hive).
+- No personal data — including location data — is transmitted to or stored on our servers.
+- Location is accessed on-device only and is never logged, cached, or shared externally.
+- Crash log files are stored on your device and can be deleted by clearing App data.
+- Payment processing is handled entirely by Google Play or the App Store — we never see your card number or payment details.
+
+---
+
+## 7. Data Retention
 
 - All data is stored locally on your device until you uninstall the App or clear App data in your phone's settings.
 - We do not hold any of your data on our servers.
-- Crash log files are stored on your device and can be deleted by clearing App data.
 
 ---
 
-## 7. Your Rights (GDPR / UK GDPR)
+## 8. Your Rights
 
-If you are located in the European Economic Area or the United Kingdom, you have the following rights:
+Since all your data is stored locally on your device, you have full control over it at all times:
 
-- **Right of access** — You can view your data directly within the App.
-- **Right to rectification** — You can edit or update your data within the App.
-- **Right to erasure** — Since all data is stored locally on your device, you can erase it by clearing App data or uninstalling the App. For any enquiries, email us.
-- **Right to data portability** — Your data is stored in standard formats on your device and can be accessed directly.
-- **Right to object** — You can disable notifications and data collection features at any time in Settings.
-
-To exercise any right, email: dailyprotocolapp@gmail.com
-We will respond within 30 days.
+- View your data directly within the App
+- Edit or clear your checklist progress, favourites, and reminders in the App
+- Erase all data by clearing App data or uninstalling the App from your device
+- Disable location, notifications, or any other feature at any time in Settings
 
 ---
 
-## 8. Children's Privacy
+## 9. Children's Privacy
 
-The App is not directed to children under the age of 13. We do not knowingly collect personal data from children under 13. If you believe a child under 13 has provided data through the App, please contact us at dailyprotocolapp@gmail.com and we will address it promptly.
-
----
-
-## 9. California Residents (CCPA)
-
-California residents have the right to know what personal information is collected about them. As described in this policy, The Daily Protocol does not collect personal information beyond anonymous, locally stored usage data. We do not sell personal information.
+The App is not directed to children under the age of 13. We do not knowingly collect personal data from children under 13.
 
 ---
 
@@ -138,12 +144,9 @@ We may update this Privacy Policy from time to time. We will notify you of mater
 
 ## 11. Contact Us
 
-For privacy-related questions, requests, or complaints:
+Want to suggest a new protocol, request a content update, or discuss advertising opportunities?
 
 **Email:** dailyprotocolapp@gmail.com
-**Support:** dailyprotocolapp@gmail.com
-
-You also have the right to lodge a complaint with your local data protection authority (e.g. the ICO in the UK, or your national DPA in the EU).
 
 ---
 

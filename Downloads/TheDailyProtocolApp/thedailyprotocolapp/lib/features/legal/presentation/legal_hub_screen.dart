@@ -140,31 +140,13 @@ class LegalHubScreen extends StatelessWidget {
 
           _legalTile(
             context,
-            icon: Icons.email_outlined,
-            title: 'General Enquiries',
-            subtitle: 'dailyprotocolapp@gmail.com',
-            onTap: () => _launchEmail('dailyprotocolapp@gmail.com',
-                subject: 'App Enquiry'),
-            isDark: isDark,
-          ),
-          const SizedBox(height: 8),
-          _legalTile(
-            context,
-            icon: Icons.lock_person_outlined,
-            title: 'Privacy Requests',
-            subtitle: 'dailyprotocolapp@gmail.com',
-            onTap: () => _launchEmail('dailyprotocolapp@gmail.com',
-                subject: 'Privacy Request'),
-            isDark: isDark,
-          ),
-          const SizedBox(height: 8),
-          _legalTile(
-            context,
-            icon: Icons.balance_outlined,
-            title: 'Legal Enquiries',
-            subtitle: 'dailyprotocolapp@gmail.com',
-            onTap: () =>
-                _launchEmail('dailyprotocolapp@gmail.com', subject: 'Legal'),
+            icon: Icons.mail_outline_rounded,
+            title: 'Get in Touch',
+            subtitle: 'Advertising, protocol suggestions & content updates',
+            onTap: () => _launchEmail(
+              'dailyprotocolapp@gmail.com',
+              subject: 'The Daily Protocol — Enquiry',
+            ),
             isDark: isDark,
           ),
 

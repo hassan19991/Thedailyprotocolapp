@@ -58,24 +58,39 @@ class _PolicyBody extends StatelessWidget {
             '   • Protocols you have marked as favourites\n'
             '   • Protocols you have recently opened\n'
             '   • Checklist progress (which steps you have checked, timestamps, notes, photos)\n'
-            '   • Protocol reminder times you have set\n\n'
-            'b) Technical Data\n'
-            '   • App version, operating system version (for crash diagnostics, if enabled)\n'
-            '   • Anonymous usage events (e.g. app open, search query — no personally identifiable information)\n\n'
+            '   • Protocol reminder times you have set\n'
+            '   • Daily notification preferences (on/off, scheduled time)\n'
+            '   • Location permission preference (enabled/disabled toggle stored locally)\n'
+            '   • Subscription tier status (free or premium)\n\n'
+            'b) Location Data (only when you enable the Location feature)\n'
+            '   • When you turn on "Location" in Settings and grant OS permission, '
+            'the App accesses your device\'s GPS to display nearby emergency services '
+            'within the Nearby Help screen.\n'
+            '   • Your location is processed entirely on-device and is NEVER transmitted '
+            'to our servers or any third party.\n'
+            '   • You can disable location access at any time in App Settings or in '
+            'your phone\'s system settings.\n\n'
+            'c) Technical Data\n'
+            '   • App version and operating system version (for crash diagnostics, if enabled)\n\n'
             'We do NOT collect:\n'
             '   • Any account, email, phone number, or personal identifier — no sign-in is required\n'
-            '   • Precise GPS location (the "Nearby Help" feature opens Google Maps in your browser — we receive no location data)\n'
+            '   • Location data without your explicit permission and voluntary opt-in\n'
             '   • Contacts, camera roll, or microphone data\n'
-            '   • Health or biometric data'),
+            '   • Health or biometric data\n'
+            '   • Browsing history or advertising identifiers'),
 
         _section(context, '3. How We Use Your Data',
             '• To save your checklist progress, favourites, and reminders on your device\n'
             '• To send local push notifications for reminders you configure\n'
+            '• To send a daily Protocol of the Day notification (opt-out available in Settings)\n'
+            '• To show nearby emergency services based on your device location '
+            '(only when you have enabled Location in Settings and granted OS permission)\n'
             '• To maintain your subscription status (verified through Google Play or the App Store)\n'
             '• To diagnose crashes and improve app stability\n\n'
             'We do NOT:\n'
             '• Sell your data to third parties\n'
             '• Use your data for advertising or profiling\n'
+            '• Transmit your location or any personal data to our servers\n'
             '• Share your data with any third party except those listed in Section 4'),
 
         _section(context, '4. Third-Party Services',
@@ -84,12 +99,17 @@ class _PolicyBody extends StatelessWidget {
             '• Google Play Billing / Apple App Store (subscription payments)\n'
             '  Google Privacy Policy: https://policies.google.com/privacy\n'
             '  Apple Privacy Policy: https://www.apple.com/legal/privacy/\n\n'
+            '• Device Location Services (OS-level GPS, only when Location is enabled)\n'
+            '  Location data is processed on-device only and is not shared with any '
+            'third-party service by this App.\n\n'
             'We do not use analytics SDKs (e.g. Mixpanel, Amplitude) or '
             'advertising SDKs (e.g. AdMob, Facebook Audience Network).'),
 
         _section(context, '5. Data Storage & Security',
             '• All your data is stored locally on your device using encrypted storage (Hive).\n'
-            '• No personal data is transmitted to or stored on our servers.\n'
+            '• No personal data — including location data — is transmitted to or stored on our servers.\n'
+            '• Location is accessed on-device only and is never logged, cached, or shared externally.\n'
+            '• Crash log files are stored locally on your device; we never receive them automatically.\n'
             '• Payment processing is handled entirely by Google Play or the App Store — '
             'we never see your card number or payment details.'),
 
@@ -98,25 +118,17 @@ class _PolicyBody extends StatelessWidget {
             'or clear App data in your phone\'s settings.\n'
             '• We do not hold any of your data on our servers.'),
 
-        _section(context, '7. Your Rights (GDPR / UK GDPR)',
-            'If you are located in the European Economic Area or the United Kingdom, '
-            'you have the following rights:\n\n'
-            '• Right of access — You can request a copy of the data we hold about you.\n'
-            '• Right to rectification — You can ask us to correct inaccurate data.\n'
-            '• Right to erasure ("right to be forgotten") — Since all data is stored '
-            'locally on your device, you can erase it by clearing App data or uninstalling the App. For any enquiries, email us.\n'
-            '• Right to data portability — We can provide your data in a structured, '
-            'machine-readable format on request.\n'
-            '• Right to object — You can object to processing at any time by emailing us.\n'
-            '• Right to restrict processing — You can request we limit how we use your data.\n\n'
-            'To exercise any right, email: dailyprotocolapp@gmail.com\n'
-            'We will respond within 30 days.'),
+        _section(context, '7. Your Rights',
+            'Since all your data is stored locally on your device, you have '
+            'full control over it at all times:\n\n'
+            '• View your data directly within the App\n'
+            '• Edit or clear your checklist progress, favourites, and reminders in the App\n'
+            '• Erase all data by clearing App data or uninstalling the App from your device\n'
+            '• Disable location, notifications, or any other feature at any time in Settings'),
 
         _section(context, '8. Children\'s Privacy',
-            'The App is not directed to children under the age of 13. We do not '
-            'knowingly collect personal data from children under 13. If you believe '
-            'a child under 13 has provided us with personal data, please contact us '
-            'at dailyprotocolapp@gmail.com and we will delete it promptly.'),
+            'The App is not directed to children under the age of 13. '
+            'We do not knowingly collect personal data from children under 13.'),
 
         _section(context, '9. Changes to This Policy',
             'We may update this Privacy Policy from time to time. We will notify you '
@@ -125,11 +137,9 @@ class _PolicyBody extends StatelessWidget {
             'acceptance of the revised policy.'),
 
         _section(context, '10. Contact Us',
-            'For privacy-related questions, requests, or complaints:\n\n'
-            '  Email: dailyprotocolapp@gmail.com\n\n'
-            'You also have the right to lodge a complaint with your local data '
-            'protection authority (e.g. the ICO in the UK, or your national DPA '
-            'in the EU).'),
+            'Want to suggest a new protocol, request a content update, or discuss '
+            'advertising opportunities?\n\n'
+            'Email: dailyprotocolapp@gmail.com'),
 
         const SizedBox(height: 32),
         Container(
@@ -139,8 +149,8 @@ class _PolicyBody extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
-            'Questions? Email us at dailyprotocolapp@gmail.com — '
-            'we aim to respond within 30 days.',
+            'Protocol suggestions, content updates, or advertising — '
+            'reach us at dailyprotocolapp@gmail.com',
             style: textTheme.bodySmall,
           ),
         ),
